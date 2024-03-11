@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}实验目的}{1}{section.1}%
+\contentsline {section}{\numberline {2}实验器材}{1}{section.2}%
+\contentsline {section}{\numberline {3}实验内容: OC门实验和流水灯设计}{1}{section.3}%
+\contentsline {subsection}{\numberline {3.1}功能要求}{1}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}已知条件}{2}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}实验具体要求及注意事项}{2}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}测量内容}{2}{subsection.3.4}%
+\contentsline {section}{\numberline {4}实验原理及参考电路}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}OC 门电路}{3}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}流水灯电路}{3}{subsection.4.2}%
+\contentsline {section}{\numberline {5}实验内容}{5}{section.5}%
+\contentsline {subsection}{\numberline {5.1}OC 门实验}{5}{subsection.5.1}%
