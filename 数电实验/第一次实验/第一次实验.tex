@@ -9,7 +9,7 @@
 \usepackage{booktabs}
 \usepackage[colorlinks=false, pdfborder={0 0 0}]{hyperref}
 \usepackage{cleveref}
-\usepackage{esint} 
+\usepackage{diagbox} 
 \usepackage{graphicx}
 \usepackage{ragged2e}
 \usepackage{pifont}
@@ -22,7 +22,7 @@
 \usepackage{titlesec}
 
 \begin{document}
-\tableofcontents
+\tableofcontents\newpage
 \section{实验目的}
 \begin{enumerate}
 	\item 掌握 OC 门电路设计测试方法；
@@ -36,13 +36,13 @@
 	\begin{tabular}{|c|c|c|}
 		\hline
 		名称 & 型号（参数） & 数量 \\ \hline
-		数字集成电路 & 74HC03 & 1 \\ 
-		~ & 74HC00 & 2 \\ 
-		~ & 74HC74 & 1 \\ 
-		~ & 74HC10 & 2 \\ 
-		电阻 & 510$\Omega$\$ & 1 \\ 
-		~ & 1k$\Omega$ & 2 \\ 
-		LED & ~ & 5 \\ \hline
+		\multirow{4}{*}{数字集成电路} & 74HC03 & 1 \\  \cline{2-3}
+		 & 74HC00 & 2 \\  \cline{2-3}e
+		 & 74HC74 & 1 \\  \cline{2-3}
+		 & 74HC10 & 2 \\  \hline
+		\multirow{2}{*}{电阻} & 510$\Omega$\$ & 1 \\ \cline{2-3}
+		 & 1k$\Omega$ & 2 \\  \cline{2-3}
+		LED & NULL & 5 \\ \hline
 	\end{tabular}
 \end{table}
 \section{实验内容: OC门实验和流水灯设计}
@@ -104,6 +104,39 @@ $$
 \section{实验内容}
 \subsection{OC 门实验}
 取发光二极管D正向导通压降$ Vi=1.5V$, 导通电流 2mA, 计算限流电阻$R_o$，负载电阻 $\mathrm{R}_{\mathrm{Lmax}},\quad\mathrm{R}_{\mathrm{Lmin}}$
-调整信号源，使其输出 1kHZ、4V 的正方波，将其连接到 $v_i$点，使用示波器“直流耦合”输入方式观察波形，在坐标纸上画出$v_i, v_o, v_{o1}, v_{o2}$的波形，并标出$V_{oH}$,
-$V_{oL}$ 的电平值
+调整信号源，使其输出 1kHZ、4V 的正方波，将其连接到 $v_i$点，使用示波器“直流耦合”输入方式观察波形，在坐标纸上画出$v_i, v_o, v_{o1}, v_{o2}$的波形，并标出$V_{oH}$,$V_{oL}$ 的电平值
+\subsection{流水灯电路}
+用 D 触发器和逻辑门设计并组装一个模 4 流水灯，主要测试的指标如下：
+\begin{enumerate}
+    \item 静态测试： CP 输入单次脉冲数字方波 $f=n$Hz， 将 CP、 1Q、2Q 分别逻辑灯相连进行观察。
+    \item 动态测试： CP 输入正值方波（$f\sim$kHz）， 将 CP、 1Q、 2Q 与示波器相连进行观察
+\end{enumerate}
+\section{实验过程}
+\subsection{OC门实验}
+主要计算了$R_D. R_L$的选取过程。假设发光二极管 D 正向导通压降 $V_F=1.5$V，导通电流 2mA，计算限流电阻$R_D$，负载
+电阻 $R_{Lmax},R_{Lmin}$. 实验时，$V_{CC}=+5$V， $V_{OHmin}=V{DD}-0.5=4.5$V， $V_{OLmax}=V{SS}+0.5=0.5$V， $V_{IHmin}=70\%V_{DD}=3.5$V，
+$V_{ILmax}=30\%V_{DD}=1.5$V.利用上文提到的公式可以计算两个电阻的取值：
+$$R_D=\frac{V_{\mathrm{OH~min}}-V_F}{I_F}=\frac{(4.5-1.5)V}{2mA}=1500\Omega$$
+$$
+R_{L~\max}=\frac{V_{\mathrm{CC}}-V_{\mathrm{OH~min}}}{nI_{\mathrm{OH}}+mI_{\mathrm{lH}}}=\frac{(5-4.5)V}{(1\times100+2\times50)uA}=2.5k\Omega$$
+$$
+R_{L~\min}=\frac{V_{\mathrm{CC}}-V_{\mathrm{OL~max}}}{I_{\mathrm{OL}}-mI_{\mathrm{lL}}}=\frac{(5-0.5)V}{(8-2\times0.4)uA}=625\Omega$$
+
+最终取$R_D=1.5\mathrm{k\Omega},R_L=1\mathrm{k\Omega}$
+\subsection{流水灯实验}
+下图记录了二分频和四分频的结果：
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{2.jpg}
+    \caption{二分频}
+    \label{fig:enter-label}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.6\textwidth]{4.jpg}
+    \caption{四分频}
+    \label{fig:enter-label}
+\end{figure}
+\section{实验小结}
+本次实验是第一次数电实验，总体来说比较顺利。但是也出现了一些小问题，比如数字集成芯片的空输入端需要置0或置1，但是起初忽略的这个问题，所以一直没有得到结果，解决这个问题后，实验基本上一帆风顺了
 \end{document}
